@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>At the Restaurant | English Homework</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #fff; color: #252a2e; font: 16px/1.55 Arial, Helvetica, sans-serif; }
+  header { padding: 34px 20px 25px; text-align: center; border-bottom: 1px solid #e7e7e7; }
+  header p { color: #666; margin: 5px 0 0; }
+  h1 { font-size: clamp(27px, 5vw, 36px); margin: 0; }
+  main { width: min(850px, calc(100% - 28px)); margin: 24px auto 50px; }
+  .meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; color: #666; font-size: 14px; margin-bottom: 22px; }
+  .exercise { border: 1px solid #e5e5e5; border-radius: 10px; padding: 20px; margin: 16px 0; }
+  h2 { font-size: 19px; margin: 0 0 4px; }
+  .hint { color: #666; font-size: 14px; margin: 0 0 15px; }
+  .match-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: center; padding: 10px 0; border-top: 1px solid #eee; }
+  select, input[type="text"] { width: 100%; border: 1px solid #ccc; border-radius: 7px; padding: 10px; background: white; color: #252a2e; font: inherit; }
+  select:focus, input:focus { outline: 2px solid #bbb; outline-offset: 1px; }
+  .question { padding: 12px 0; border-top: 1px solid #eee; }
+  .question:first-child { border-top: 0; }
+  .options { display: flex; flex-wrap: wrap; gap: 9px 18px; margin-top: 8px; }
+  label { cursor: pointer; }
+  input[type="radio"] { accent-color: #333; margin-right: 5px; }
+  .wordbank { background: #f7f7f7; border-radius: 7px; padding: 10px 12px; margin-bottom: 12px; font-size: 14px; }
+  .fill-row { margin: 12px 0; }
+  .fill-row input { display: inline-block; width: 190px; max-width: 100%; margin: 3px 4px; }
+  .feedback { font-size: 14px; font-weight: bold; margin-top: 12px; }
+  .correct { color: #287347; } .incorrect { color: #b33c32; }
+  .buttons { display: flex; gap: 10px; flex-wrap: wrap; margin: 22px 0; }
+  button { border: 1px solid #222; border-radius: 7px; padding: 11px 17px; font-size: 15px; font-weight: bold; cursor: pointer; }
+  .check { background: #222; color: white; }
+  .reset { background: white; color: #222; }
+  #final-result { display: none; border: 1px solid #ddd; border-radius: 9px; padding: 18px; margin-top: 18px; }
+  @media (max-width: 580px) { .match-row { grid-template-columns: 1fr; gap: 5px; } .exercise { padding: 16px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>At the Restaurant 🍽️</h1>
+  <p>English Homework · A2–B1</p>
+</header>
+
+<main>
+  <div class="meta">
+    <span>Student: ____________________</span>
+    <span>5 exercises</span>
+    <span>Suggested time: 20–25 minutes</span>
+  </div>
+
+  <section class="exercise">
+    <h2>Exercise 1. Match the phrases</h2>
+    <p class="hint">Match each phrase with the correct response. Think about what a customer or a waiter might say.</p>
+    <div id="matching"></div>
+    <div class="feedback" id="feedback1"></div>
+  </section>
+
+  <section class="exercise">
+    <h2>Exercise 2. Restaurant vocabulary</h2>
+    <p class="hint">Choose the correct meaning of each word or phrase.</p>
+    <div id="vocabulary"></div>
+    <div class="feedback" id="feedback2"></div>
+  </section>
+
+  <section class="exercise">
+    <h2>Exercise 3. What would you say?</h2>
+    <p class="hint">Choose the most natural phrase for each situation.</p>
+    <div id="situations"></div>
+    <div class="feedback" id="feedback3"></div>
+  </section>
+
+  <section class="exercise">
+    <h2>Exercise 4. Complete the sentences</h2>
+    <p class="hint">Use the words and phrases from the box. Use each one once.</p>
+    <div class="wordbank"><strong>Word bank:</strong> reservation · bill · still water · side dish · takeaway</div>
+    <div id="fill">
+      <div class="fill-row">1. We have a <input type="text" data-answer="reservation"> for two at 7 p.m.</div>
+      <div class="fill-row">2. Could we have the <input type="text" data-answer="bill">, please?</div>
+      <div class="fill-row">3. Could I have a glass of <input type="text" data-answer="still water">, please?</div>
+      <div class="fill-row">4. Would you like fries or salad as a <input type="text" data-answer="side dish">?</div>
+      <div class="fill-row">5. Can I get this pizza as a <input type="text" data-answer="takeaway">?</div>
+    </div>
+    <div class="feedback" id="feedback4"></div>
+  </section>
+
+  <section class="exercise">
+    <h2>Exercise 5. True or false?</h2>
+    <p class="hint">Read the short restaurant conversation and decide whether the statements are true or false.</p>
+    <div style="background:#f7f7f7;padding:13px;border-radius:7px;margin-bottom:12px">
+      <strong>Waiter:</strong> Good evening! Do you have a reservation?<br>
+      <strong>Customer:</strong> Yes, a table for two under the name Taylor.<br>
+      <strong>Waiter:</strong> Of course. Follow me, please. Here are your menus.<br>
+      <strong>Customer:</strong> Thank you. What would you recommend?<br>
+      <strong>Waiter:</strong> The grilled salmon is very popular. It comes with vegetables.<br>
+      <strong>Customer:</strong> Great. I'll have that, please. And still water for both of us.<br>
+      <strong>Waiter:</strong> Certainly. Would you like to see the dessert menu later?<br>
+      <strong>Customer:</strong> Yes, please.
+    </div>
+    <div id="truefalse"></div>
+    <div class="feedback" id="feedback5"></div>
+  </section>
+
+  <div class="buttons">
+    <button class="check" onclick="checkAnswers()">Check my answers</button>
+    <button class="reset" onclick="resetQuiz()">Try again</button>
+  </div>
+  <div id="final-result" aria-live="polite"></div>
+</main>
+
+<script>
+const matchItems = [
+  ["“Are you ready to order?”", "“Yes, I'll have the chicken, please.”"],
+  ["“Would you like anything to drink?”", "“A lemonade, please.”"],
+  ["“How would you like your steak?”", "“Medium, please.”"],
+  ["“Is everything all right?”", "“Yes, everything is delicious, thank you.”"],
+  ["“Would you like anything else?”", "“No, that's all, thank you.”"]
+];
+const matchBox = document.getElementById("matching");
+const shuffledResponses = matchItems.map(x => x[1]).sort(() => Math.random() - 0.5);
+matchItems.forEach((item, i) => {
+  const row = document.createElement("div"); row.className = "match-row";
+  const phrase = document.createElement("div"); phrase.textContent = (i + 1) + ". " + item[0];
+  const select = document.createElement("select"); select.dataset.answer = item[1];
+  select.innerHTML = '<option value="">Choose a response</option>';
+  shuffledResponses.forEach(response => {
+    const option = document.createElement("option"); option.value = response; option.textContent = response; select.appendChild(option);
+  });
+  row.append(phrase, select); matchBox.appendChild(row);
+});
+
+const vocabItems = [
+  ["“On the house” means…", ["You have to pay extra.", "It is free.", "It is very expensive."], 1],
+  ["“On the rocks” means…", ["Served with ice.", "Served without ice.", "Served with hot water."], 0],
+  ["A “starter” is…", ["The main meal.", "A small dish before the main course.", "A sweet dish after the meal."], 1],
+  ["“Rare” (about a steak) means…", ["Cooked for a short time; red inside.", "Cooked until completely dry.", "Served cold."], 0],
+  ["“To go” / “takeaway” means…", ["To eat at the restaurant.", "To take the food away and eat elsewhere.", "To order another meal."], 1]
+];
+function addRadioQuestions(containerId, items, namePrefix) {
+  const container = document.getElementById(containerId);
+  items.forEach((item, i) => {
+    const div = document.createElement("div"); div.className = "question";
+    const title = document.createElement("strong"); title.textContent = (i + 1) + ". " + item[0]; div.appendChild(title);
+    const options = document.createElement("div"); options.className = "options";
+    item[1].forEach((text, j) => {
+      const label = document.createElement("label");
+      label.innerHTML = '<input type="radio" name="' + namePrefix + i + '" value="' + j + '">' + text;
+      options.appendChild(label);
+    });
+    div.appendChild(options); container.appendChild(div);
+  });
+}
+addRadioQuestions("vocabulary", vocabItems, "v");
+const situationItems = [
+  ["You want to ask for the menu. You say:", ["Can I see the menu, please?", "Give me food now.", "Where is my kitchen?"], 0],
+  ["You want to say that the food was delicious. You say:", ["I am full menu.", "That was delicious.", "I take a table."], 1],
+  ["You want to order politely. You say:", ["I want this. Quickly.", "Bring me that.", "Could I have the pasta, please?"], 2],
+  ["You want to ask if the service charge is included. You say:", ["Is service included?", "Is the food included?", "Do you include a table?"], 0],
+  ["You want to pay separately. You say:", ["Can we split the bill, please?", "Can we split the menu?", "Can we book the waiter?"], 0]
+];
+addRadioQuestions("situations", situationItems, "s");
+const tfItems = [
+  ["The customers have a reservation for two.", true],
+  ["The reservation is under the name Taylor.", true],
+  ["The waiter recommends grilled chicken.", false],
+  ["The salmon comes with vegetables.", true],
+  ["The customers order sparkling water.", false]
+];
+const tfBox = document.getElementById("truefalse");
+tfItems.forEach((item, i) => {
+  const div = document.createElement("div"); div.className = "question";
+  div.innerHTML = '<strong>' + (i + 1) + '. ' + item[0] + '</strong><div class="options"><label><input type="radio" name="tf' + i + '" value="true">True</label><label><input type="radio" name="tf' + i + '" value="false">False</label></div>';
+  tfBox.appendChild(div);
+});
+function setFeedback(id, score, total) {
+  const el = document.getElementById(id);
+  el.textContent = "Score: " + score + " / " + total;
+  el.className = "feedback " + (score === total ? "correct" : "incorrect");
+}
+function checkAnswers() {
+  let score = 0, total = 0;
+  const matchSelects = [...document.querySelectorAll("#matching select")];
+  let s = 0; matchSelects.forEach(x => { total++; if (x.value === x.dataset.answer) s++; });
+  score += s; setFeedback("feedback1", s, matchSelects.length);
+
+  let vScore = 0;
+  vocabItems.forEach((item, i) => { total++; if (Number(document.querySelector('input[name="v' + i + '"]:checked')?.value) === item[2]) vScore++; });
+  score += vScore; setFeedback("feedback2", vScore, vocabItems.length);
+
+  let sScore = 0;
+  situationItems.forEach((item, i) => { total++; if (Number(document.querySelector('input[name="s' + i + '"]:checked')?.value) === item[2]) sScore++; });
+  score += sScore; setFeedback("feedback3", sScore, situationItems.length);
+
+  let fillScore = 0;
+  const fields = [...document.querySelectorAll("#fill input")];
+  fields.forEach(x => { total++; if (x.value.trim().toLowerCase() === x.dataset.answer) fillScore++; });
+  score += fillScore; setFeedback("feedback4", fillScore, fields.length);
+
+  let tfScore = 0;
+  tfItems.forEach((item, i) => { total++; if (document.querySelector('input[name="tf' + i + '"]:checked')?.value === String(item[1])) tfScore++; });
+  score += tfScore; setFeedback("feedback5", tfScore, tfItems.length);
+
+  const percent = Math.round(score / total * 100);
+  const result = document.getElementById("final-result");
+  result.style.display = "block";
+  let message = percent >= 90 ? "Excellent work! You know your restaurant English very well." :
+                percent >= 70 ? "Good job! Review the questions you got wrong and try again." :
+                percent >= 50 ? "Nice effort. A little more practice will help you improve." :
+                                "Keep practising! Review the vocabulary and try the homework again.";
+  result.innerHTML = "<h2>Your result: " + score + " / " + total + " (" + percent + "%)</h2><p>" + message + "</p>";
+  result.scrollIntoView({behavior:"smooth", block:"center"});
+}
+function resetQuiz() {
+  document.querySelectorAll("select").forEach(x => x.value = "");
+  document.querySelectorAll('input[type="radio"]').forEach(x => x.checked = false);
+  document.querySelectorAll('#fill input').forEach(x => x.value = "");
+  document.querySelectorAll(".feedback").forEach(x => x.textContent = "");
+  document.getElementById("final-result").style.display = "none";
+}
+</script>
+</body>
+</html>
